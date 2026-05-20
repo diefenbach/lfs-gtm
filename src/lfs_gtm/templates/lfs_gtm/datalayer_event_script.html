@@ -1,0 +1,11 @@
+{% if event and gtm_id %}
+{{ event|json_script:element_id }}
+<script>
+  (function () {
+    var el = document.getElementById('{{ element_id }}');
+    if (!el) return;
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push(JSON.parse(el.textContent));
+  })();
+</script>
+{% endif %}
