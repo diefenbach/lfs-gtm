@@ -78,7 +78,8 @@ flowchart LR
 
 ### 1. Paket einbinden
 
-In `INSTALLED_APPS` (nach `lfs_cookie_consent` empfohlen):
+`pip install lfs-gtm` installiert `lfs-cookie-consent` mit, denn ohne Einwilligung lädt GTM nichts. Beide kommen in
+`INSTALLED_APPS` (`lfs_gtm` nach `lfs_cookie_consent`):
 
 ```python
 INSTALLED_APPS = [
