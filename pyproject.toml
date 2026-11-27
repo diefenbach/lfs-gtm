@@ -6,6 +6,8 @@ authors = [
     { name = "Kai Diefenbach", email = "kai.diefenbach@iqpp.de" }
 ]
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.8,<3.14"
 dependencies = [
     "Django>=3.2,<6.0",
@@ -14,7 +16,7 @@ dependencies = [
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
@@ -26,3 +28,8 @@ test = [
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.test_project.settings"
 pythonpath = [".", "src"]
+
+# Only what belongs to the package: the local notes (recaps/, todos/) and caches stay out of the sdist.
+[tool.hatch.build.targets.sdist]
+include = ["src/lfs_gtm", "tests", "README.md", "LICENSE", "pyproject.toml"]
+exclude = ["__pycache__", "*.pyc"]
